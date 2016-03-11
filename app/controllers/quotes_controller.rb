@@ -25,7 +25,7 @@ class QuotesController < ApplicationController
   # POST /quotes
   # POST /quotes.json
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_user.quotes.new(quote_params)
 
     if @quote.save
       redirect_to @quote, notice: 'Quote was successfully created.'
